@@ -6,9 +6,11 @@
   "scripts": {
     "start": "pm2 start --interpreter ts-node-dev --name books-api src/api/v1/index.ts",
     "dev": "ts-node-dev src/api/v1/index",
-    "prod": "pm2 start --interpreter ts-node --name books-api src/api/v1/index.ts",
+    "prod": "node build/api/v1/index.js",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "build": "rimraf ./build && tsc && npm run copy-config",
+    "copy-config": "cp  .env ./build"
   },
   "keywords": [],
   "author": "Kalpesh mali",
@@ -42,6 +44,7 @@
     "pm2": "^5.3.0",
     "randomatic": "^3.1.1",
     "redis": "^4.6.6",
+    "rimraf": "^5.0.5",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "uuid": "^9.0.1",
