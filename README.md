@@ -2,6 +2,7 @@
 ### Book Routes
 
 This file contains the routes related to managing books.
+Base URL = https://books-store-service.onrender.com/api/v1
 
 - **GET /books**
   - Description: Retrieve a list of all books.
